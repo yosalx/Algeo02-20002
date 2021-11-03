@@ -1,0 +1,36 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color:rgb(194, 197, 199);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    margin: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-self: center;
+}
+
+.file-uploader {
+    background-color: yellow;
+}
+
+.image-box {
+    display: flex;
+    width: 800px;
+    background-color: antiquewhite;
+}
+
+.before {
+    width: 400px;
+}
+
+.after {
+    width: 400px;
+}

@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <title>Image Compression Algeo</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">     
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="{{url_for('static', filename='script.js')}}"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="file-uploader">
+                <h2>Select a file to upload</h2>
+                <p>
+                    {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <ul>
+                        {% for message in messages %}
+                        <li>{{ message }}</li>
+                        {% endfor %}
+                        </ul>
+                    {% endif %}
+                    {% endwith %}
+                </p>
+
+                <form method="post" action="/" enctype="multipart/form-data">
+                    <dl>
+                        <p>
+                            <input type="file" name="file" autocomplete="off" required>
+                        </p>
+                    </dl>
+                    <p>
+                        <input type="submit" value="Submit">
+                    </p>
+                </form>
+            </div>
+            <div class="image-box">
+                <div class="before">
+                    {% if filename %}
+                        <img src="{{ url_for('display_image', filename=filename) }}">
+                        
+                    {% endif %}
+                </div>
+                <div class="after">
+                    {% if filename %}
+                        <img src="{{ url_for('display_image', filename=filename) }}">
+                    {% endif %}
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>
