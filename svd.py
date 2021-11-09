@@ -3,10 +3,12 @@ import numpy as np
 # dummy SVD function
 
 def svd(A):
-    u = u_matrix(A)
-    sig = sig_matrix(A)
-    v = v_matrix(A)
-    return u,sig,v
+    U = u_matrix(A)
+    Sig = sig_matrix(A)
+    Vt = v_matrix(A)
+    return U,Sig,Vt
+
+
 
 '''''
 def eigen_vector_left(A):
