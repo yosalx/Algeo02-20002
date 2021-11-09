@@ -2,12 +2,16 @@ from flask import Flask, flash, request, redirect, url_for, render_template
 import urllib.request
 import os
 from werkzeug.utils import secure_filename
+# from dotenv import load_dotenv
+# dotenv_path = join(dirname(__file__), '.env')  # Path to .env file
+# load_dotenv(dotenv_path)
  
 app = Flask(__name__)
  
 UPLOAD_FOLDER = 'static/uploads/'
  
 app.secret_key = "tubes2algeo"
+app.config['ENV'] = 'development'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024 # 16 MB max sizes
  
@@ -42,4 +46,4 @@ def display_image(filename):
     return redirect(url_for('static', filename='uploads/' + filename), code=301)
  
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
