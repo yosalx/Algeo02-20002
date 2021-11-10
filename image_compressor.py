@@ -1,6 +1,8 @@
 import image_processing
 import k_svd
 import numpy as np
+import matplotlib.pyplot as plt
+from PIL import Image
 
 
 def img_comp(filename,percent):
@@ -20,10 +22,14 @@ def img_comp(filename,percent):
         for i in range(3):
             merge[:,:,i] = mat[i] # menggabungkan matriks rgb
     
-    merge_rgb(n,comppresed) # menggabungkan matriks rgb
+        return merge
     
-    return merge_rgb
+    merge_pic = merge_rgb(n,comppresed) # menggabungkan matriks rgb
+
+
+    plt.imshow(merge_pic.astype(np.uint8))
+    plt.show()
 
 # Untuk test bisa make matplotlib
-# plt.imshow(merge_rgb.astype(np.uint8))
 
+img_comp("tes3.jfif", 100) #senggol bos bisa jfif nih
