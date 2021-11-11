@@ -63,7 +63,7 @@ def find_eig_qr(A):
 A = np.array([[2,0,2],[0,3,0],[2,0,2],[0,3,0],[2,0,2]])
 AT = np.transpose(A)
 AAT = np.matmul(A,AT)
-matrix = np.random.random_integers(0, 100, (1000, 1000))
+matrix = np.random.random_integers(0, 100, (5, 1000))
 from datetime import datetime
 start_time = datetime.now()	
 x,y = find_eig_qr(AAT)
@@ -77,4 +77,6 @@ print("svd")
 print(u)
 end_time = datetime.now()
 print('Duration: {}'.format(end_time - start_time))
+
+
 
