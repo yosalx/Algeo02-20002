@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 from PIL import Image
 
 
-def img_comp(filename,percent):
+def img_comp(filename,k): # parameter input adalah nama file dan jumlah singular value yang akan digunakan
     
     # mengubah gambar yang akan dikompres menjadi matriks, dipisahkan menjadi matriks rgb
     # mengambil ukuran matriks
@@ -13,9 +13,9 @@ def img_comp(filename,percent):
     
     comppresed = [] # menyiapkan tempat untuk matriks rgb dari gambar yang akan disederhanakan dengan proses svd
     
-    comppresed.append(k_svd.k_svd(filename,r,percent)) # menambahkan matriks r sederhana 
-    comppresed.append(k_svd.k_svd(filename,g,percent)) # menambahkan matriks g sederhana
-    comppresed.append(k_svd.k_svd(filename,b,percent)) # menambahkan matriks b sederhana
+    comppresed.append(k_svd.k_svd(r,k)) # menambahkan matriks r sederhana 
+    comppresed.append(k_svd.k_svd(g,k)) # menambahkan matriks g sederhana
+    comppresed.append(k_svd.k_svd(b,k)) # menambahkan matriks b sederhana
 
     def merge_rgb(shape,mat): # deklarasi fungsi untuk penggabungan kembali matriks rgb
         merge = np.zeros(shape) # menyiapkan matriks 0 dengan ukuran sesusai ukuran matriks dari gambar
@@ -26,10 +26,13 @@ def img_comp(filename,percent):
     
     merge_pic = merge_rgb(n,comppresed) # menggabungkan matriks rgb
 
+    # Untuk test bisa make matplotlib
+    # Di uncomment aja
+    # plt.imshow(merge_pic.astype(np.uint8))
+    # plt.show()
+    
+    save = Image.fromarray(merge_pic.astype(np.uint8))
+    save.save("lol.jpg")
 
-    plt.imshow(merge_pic.astype(np.uint8))
-    plt.show()
 
-# Untuk test bisa make matplotlib
-
-img_comp("tes3.jfif", 100) #senggol bos bisa jfif nih
+img_comp("tes.jpg", 20)
