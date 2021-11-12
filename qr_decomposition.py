@@ -69,7 +69,13 @@ def find_eig_qr(A):
 # x,y = find_eig_qr(AAT)
 
 # u,Sig,V = np.linalg.svd(A)
+<<<<<<< HEAD
 
+=======
+# print(Sig)
+
+# print("eigen value\n")
+>>>>>>> e61e8d9ae3845f44ad0df09a3135ea248f68f5ae
 # print(x)
 # print("eigenvector")
 # print(y)

@@ -39,6 +39,6 @@ def img_comp(filename,k): # parameter input adalah nama file dan jumlah singular
 
 from datetime import datetime
 start_time = datetime.now()	
-img_comp("4k.jpg", 100)
+img_comp("tes.jpg", 200)
 end_time = datetime.now()
 print('Duration pake qr gilang 6 iterasi: {}'.format(end_time - start_time))
