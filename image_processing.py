@@ -2,7 +2,7 @@ import numpy as np
 from PIL import Image
 
 def image_matrix(filename): 
-    im = np.asarray(Image.open(filename)) # Mengubah data dari gambar menjadi bentuk matrix
+    im = np.asarray(Image.open(filename)).astype(float) # Mengubah data dari gambar menjadi bentuk matrix
     
     # Memisahkan matriks gambar menjadi matriks rgb
     # 0 mewakili r, 1 mewakili g, 2 mewakili b
