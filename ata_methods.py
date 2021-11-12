@@ -30,8 +30,9 @@ def find_svd(a):
     eigenValues = eigenValues[idx]
     eigenVectors = eigenVectors[:,idx]
     
-    singular = np.zeros(len(eigenValues))
-    for i in range(len(eigenValues)):
+    n = len(eigenValues)
+    singular = np.zeros(n)
+    for i in range(n):
         if (eigenValues[i] < 1e-16):
             singular[i] = 0
         else:
