@@ -47,6 +47,6 @@ def find_svd(a):
 
     matu = np.zeros((rows,rows))
     for j in range(rows):
-        matu[:,j] = (np.matmul(a,vT[j])) / math.sqrt(eigenValues[j])
+        matu[:,j] = (np.matmul(a,vT[j])) / math.sqrt(abs(eigenValues[j]))
     svd = np.dot(matu,np.dot(matrixs,vT))
     return matu,singular,vT

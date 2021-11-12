@@ -52,7 +52,7 @@ def qr_factorization(A):
 def find_eig_qr(A):
     pQ = np.eye(A.shape[0])
     X=A.copy()
-    for i in range(100):
+    for i in range(6):
             Q,R = np.linalg.qr(X)
             pQ = pQ @ Q;
             X = R @ Q;
@@ -60,23 +60,23 @@ def find_eig_qr(A):
 
 
 
-A = np.array([[2,0,2],[0,3,0],[2,0,2],[0,3,0],[2,0,2]])
-AT = np.transpose(A)
-AAT = np.matmul(A,AT)
-matrix = np.random.random_integers(0, 100, (5, 1000))
-from datetime import datetime
-start_time = datetime.now()	
-x,y = find_eig_qr(AAT)
+# A = np.array([[2,0,2],[0,3,0],[2,0,2],[0,3,0],[2,0,2]])
+# AT = np.transpose(A)
+# AAT = np.matmul(A,AT)
+# matrix = np.random.random_integers(0, 100, (5, 1000))
+# from datetime import datetime
+# start_time = datetime.now()	
+# x,y = find_eig_qr(AAT)
 
-u,Sig,V = np.linalg.svd(A)
+# u,Sig,V = np.linalg.svd(A)
 
-print(x)
-print("eigenvector")
-print(y)
-print("svd")
-print(u)
-end_time = datetime.now()
-print('Duration: {}'.format(end_time - start_time))
+# print(x)
+# print("eigenvector")
+# print(y)
+# print("svd")
+# print(u)
+# end_time = datetime.now()
+# print('Duration: {}'.format(end_time - start_time))
 
 
 
