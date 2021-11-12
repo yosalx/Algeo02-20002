@@ -32,7 +32,13 @@ def img_comp(filename,k): # parameter input adalah nama file dan jumlah singular
     # plt.show()
     
     save = Image.fromarray(merge_pic.astype(np.uint8))
-    save.save("lol.jpg")
+    save.save("4k-100.jpg")
 
 
-img_comp("tes.jpg", 20)
+# img_comp("tes.jpg", 20)
+
+from datetime import datetime
+start_time = datetime.now()	
+img_comp("4k.jpg", 100)
+end_time = datetime.now()
+print('Duration pake qr gilang 6 iterasi: {}'.format(end_time - start_time))
