@@ -2,6 +2,8 @@ from flask import Flask, flash, request, redirect, url_for, render_template
 import urllib.request
 import os
 from werkzeug.utils import secure_filename
+import image_compressor as ic
+from datetime import datetime
 # from dotenv import load_dotenv
 # dotenv_path = join(dirname(__file__), '.env')  # Path to .env file
 # load_dotenv(dotenv_path)
@@ -29,21 +31,36 @@ def upload_image():
     if 'file' not in request.files:
         flash('Gambar gagal diupload')
         return redirect(request.url)
-    file = request.files['file']
+    file = request.files['file']            # get image file
     if file.filename == '':
         flash('Tidak ada gambar yang dipilih')
         return redirect(request.url)
     if file and allowed_file(file.filename):
         filename = secure_filename(file.filename)
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-        return render_template('index.html', filename=filename)
+        k = int(request.form['compressRate'])
+        print(k)
+        start_time = datetime.now()	
+        ic.img_comp(f'{UPLOAD_FOLDER}{file.filename}',k)
+        end_time = datetime.now()
+        duration = end_time - start_time
+
+        savename,ext = os.path.splitext(filename)
+        savename = f'{savename}Compressed{ext}'
+        return render_template('index.html', filename=filename, duration = duration)
     else:
         flash('Gambar harus memiliki ekstensi png, jpg, atau jpeg')
         return redirect(request.url)
  
 @app.route('/display/<filename>')
 def display_image(filename):
-    return redirect(url_for('static', filename='uploads/' + filename), code=301)
+    return redirect(url_for('static', filename='uploads/' + filename ), code=301)
+
+@app.route('/display/<filename>/c')
+def display_image_c(filename):
+    savename,ext = os.path.splitext(filename)
+    savename = f'{savename}Compressed{ext}'
+    return redirect(url_for('static', filename='uploads/' + savename, ), code=301)
  
 if __name__ == "__main__":
     app.run(debug=True)

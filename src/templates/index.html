@@ -47,23 +47,26 @@
             {% if filename %}
             <div class="image-box">
                 
-                <div class="imgresult">
+                <div class="imgresult" style="pad: 20px;">
                     <h2>Before</h2>
                     
-                        <img style="width:300px;height:200px;" src="{{ url_for('display_image', filename=filename) }}">
+                        <img style="max-width:100%;max-height:100%;" src="{{ url_for('display_image', filename=filename) }}">
                         
                 </div>
                 
-                <div class="imgresult">
+                <div class="imgresult" style="pad: 20px;">
                     <h2>After</h2>
-                        <img style="width:300px;height:200px;" src="{{ url_for('display_image', filename=filename) }}">
+                        <img style="max-width:100%;max-height:100%;" src="{{ url_for('display_image_c', filename=filename) }}">
                     
                 </div>
             </div>
             <div class="rate-info">
                 <div>
+                    
                     <p>Image pixel difference percentage: 50%</p>
-                    <p>Image compression time 0.5 seconds</p>
+                    
+                    <p>Image compression time : {{duration}} </p>
+                    
                 </div>
                 <button type="button">Download</button>
             </div>
