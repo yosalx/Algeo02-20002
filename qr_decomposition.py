@@ -1,5 +1,14 @@
 import numpy as np
 
+def find_eig_qr(A):
+    pQ = np.eye(A.shape[0])
+    X=A.copy()
+    for i in range(6):
+            Q,R = np.linalg.qr(X)
+            pQ = pQ @ Q;
+            X = R @ Q;
+    return np.diag(X), pQ
+
 # def isDiagonal(mat):
 # 	for i in range(len(mat)):
 # 		for j in range(len(mat)):
@@ -47,12 +56,3 @@ import numpy as np
 #         Q[:, j] = v / norm
 #         R[j, j] = norm
 #     return Q, R
-
-def find_eig_qr(A):
-    pQ = np.eye(A.shape[0])
-    X=A.copy()
-    for i in range(6):
-            Q,R = np.linalg.qr(X)
-            pQ = pQ @ Q;
-            X = R @ Q;
-    return np.diag(X), pQ
