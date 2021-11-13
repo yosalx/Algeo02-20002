@@ -38,7 +38,7 @@ def upload_image():
     if file and allowed_file(file.filename):
         filename = secure_filename(file.filename)
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-        k = int(request.form['compressRate'])
+        k = 100 - int(request.form['compressRate'])
         print(k)
         start_time = datetime.now()	
         ic.img_comp(f'{UPLOAD_FOLDER}{file.filename}',k)
