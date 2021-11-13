@@ -4,6 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from PIL import Image
 import os
+import math
 
 def img_comp(filename,percent): # parameter input adalah nama file dan jumlah singular value yang akan digunakan
     
@@ -41,10 +42,21 @@ def img_comp(filename,percent): # parameter input adalah nama file dan jumlah si
     savename,ext = os.path.splitext(filename)
     savename = f'{savename}Compressed'
     save.save(f'{savename}{ext}')
+    
+    
     # plt.imshow(save)
     # plt.show()
 
-
+def pixel_diff(filename,percent):
+    im = Image.open(filename)
+    matrix = np.asarray(im).astype(float)
+    n = np.linalg.matrix_rank(matrix)
+    k = percent*n//100
+    
+    diff = int(math.ceil((k/100)*((1+im.size[0]+im.size[1])/(im.size[0]*im.size[1]))))
+    
+    return diff
+    
 # img_comp("tes.jpg", 20)
 
 # from datetime import datetime
