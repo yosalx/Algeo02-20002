@@ -47,8 +47,8 @@ def upload_image():
 
         savename,ext = os.path.splitext(filename)
         savename = f'{UPLOAD_FOLDER}{savename}Compressed{ext}'
-
-        size_before = os.path.getsize(filename)
+        uploadFilename = f'{UPLOAD_FOLDER}{filename}'
+        size_before = os.path.getsize(uploadFilename)
         size_after = os.path.getsize(savename)
         compression_rate = (size_after / size_before) * 100
 
