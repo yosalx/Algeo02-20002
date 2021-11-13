@@ -1,4 +1,4 @@
-from flask import Flask, flash, request, redirect, url_for, render_template
+from flask import Flask, flash, request, redirect, url_for, render_template, send_file
 import urllib.request
 import os
 from werkzeug.utils import secure_filename
@@ -46,8 +46,13 @@ def upload_image():
         duration = end_time - start_time
 
         savename,ext = os.path.splitext(filename)
-        savename = f'{savename}Compressed{ext}'
-        return render_template('index.html', filename=filename, duration = duration)
+        savename = f'{UPLOAD_FOLDER}{savename}Compressed{ext}'
+
+        size_before = os.path.getsize(filename)
+        size_after = os.path.getsize(savename)
+        compression_rate = (size_after / size_before) * 100
+
+        return render_template('index.html', filename=filename, duration = duration, compression_rate = compression_rate)
     else:
         flash('Gambar harus memiliki ekstensi png, jpg, atau jpeg')
         return redirect(request.url)
@@ -62,5 +67,12 @@ def display_image_c(filename):
     savename = f'{savename}Compressed{ext}'
     return redirect(url_for('static', filename='uploads/' + savename, ), code=301)
  
+@app.route('/download/<filename>')
+def download_file(filename):
+    savename,ext = os.path.splitext(filename)
+    savename = f'{UPLOAD_FOLDER}{savename}Compressed{ext}'
+    return send_file(savename, as_attachment=True)
+
+
 if __name__ == "__main__":
     app.run(debug=True)

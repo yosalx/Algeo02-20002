@@ -46,18 +46,6 @@ def img_comp(filename,percent): # parameter input adalah nama file dan jumlah si
     
     # plt.imshow(save)
     # plt.show()
-
-def pixel_diff(filename,percent):
-    im = Image.open(filename)
-    matrix = np.asarray(im).astype(float)
-    n = np.linalg.matrix_rank(matrix)
-    k = percent*n/100
-    
-    diff = ((k/100)*((1+im.size[0]+im.size[1])/(im.size[0]*im.size[1])))
-    
-    return diff
-
-print(pixel_diff("converted.jpg", 50))
     
 # img_comp("tes.jpg", 20)
 

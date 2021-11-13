@@ -63,12 +63,12 @@
             <div class="rate-info">
                 <div>
                     
-                    <p>Image pixel difference percentage: 50%</p>
+                    <p>Image pixel difference percentage: {{compression_rate}}</p>
                     
                     <p>Image compression time : {{duration}} </p>
                     
                 </div>
-                <button type="button">Download</button>
+                <a href = "{{url_for('download_file', filename=filename)}}">Download</a>
             </div>
             {% endif %}
 
