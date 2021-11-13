@@ -10,10 +10,7 @@ def find_v(matrix):
     return v
 
 def find_svd(a):
-    def find_ata(a):
-        at = a.transpose()
-        return np.dot(at,a)
-    v = find_ata(a)
+    v = find_v(a)
     rows = len(a)
     cols = len(a[0])
     
@@ -23,31 +20,26 @@ def find_svd(a):
     # pake library eigen
     # eval,evec = np.linalg.eig(v)
     
-    eigenValues = eval
-    eigenVectors = evec
-    idx = eigenValues.argsort()[::-1]   
-    eigenValues = eigenValues[idx]
-    eigenVectors = eigenVectors[:,idx]
+    idx = eval.argsort()[::-1]   
+    eval = eval[idx]
+    evec = evec[:,idx]
+    n = len(eval[eval != 0.0])
     
-    n = len(eigenValues)
-    singular = np.zeros(n)
-    for i in range(n):
-        if (eigenValues[i] < 1e-16):
-            singular[i] = 0
-        else:
-            singular[i] = math.sqrt(eigenValues[i])
+    singular = np.zeros((n, n))
+    singular[:n, :n] = np.diag(eval)
     
-    print((-1) * eigenVectors.transpose())
-    vT = (-1) * eigenVectors.transpose()
-    v = (-1) * eigenVectors
-
-    matrixs = np.zeros((rows,cols))
-    for i in range(np.linalg.matrix_rank(a)):
-        matrixs[i][i] = math.sqrt(eigenValues[i])
+    # for i in range(n):
+    #     if (eval[i] < 1e-16):
+    #         singular[i] = 0
+    #     else:
+    #         singular[i] = math.sqrt(eigenValues[i])
+    
+    #print((-1) * eigenVectors.transpose())
+    vT = (-1) * evec.transpose()
+    #v = (-1) * eigenVectors
 
     matu = np.zeros((rows,rows))
     rank = np.linalg.matrix_rank(a)
     for j in range(rank):
-        matu[:,j] = (np.matmul(a,vT[j])) / math.sqrt(abs(eigenValues[j]))
-    svd = np.dot(matu,np.dot(matrixs,vT))
+        matu[:,j] = (np.matmul(a,vT[j])) / math.sqrt(abs(eval[j]))
     return matu,singular,vT
