@@ -15,8 +15,7 @@ Algeo02-20002
 ## Cara pakai
 1. Clone repo ini: `git clone git@github.com:ranjabi/Algeo02-20002.git`
 2. Pergi ke Algeo02-20002: `cd Algeo02-20002/src`
-3. Aktivasi virtual environment: `. venv/bin/activate`
-4. Install flask: `pip install flask`
+4. Pastikan sudah terinstall flask: `pip install flask`
 5. Jalankan command berikut:
 `set FLASK_APP=app.py`
 `set FLASK_ENV=development`
