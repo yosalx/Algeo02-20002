@@ -63,8 +63,10 @@ def img_comp_png(filename,percent):
     alp_im = (Image.fromarray(alp)).convert("L")
     
     save_png = Image.merge("RGBA", (r_im,g_im,b_im,alp_im)) # menggabungkan kembali keempat gambar dari keempat array sebelumnya dengan mode RGBA
-    save_png.save("savepng.png")
-
+    savename,ext = os.path.splitext(filename)
+    savename = f'{savename}Compressed'
+    save_png.save(f'{savename}{ext}')
+    
 #img_comp_png("src/test_png.png",80)
 # img_comp("tes.jpg", 20)
 
