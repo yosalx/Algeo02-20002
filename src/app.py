@@ -40,12 +40,15 @@ def upload_image():
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         k = 100 - int(request.form['compressRate'])
         print(k)
+        savename,ext = os.path.splitext(filename)
         start_time = datetime.now()	
-        ic.img_comp(f'{UPLOAD_FOLDER}{file.filename}',k)
+        if ext == '.png':
+            ic.img_comp_png(f'{UPLOAD_FOLDER}{file.filename}',k)
+        else :
+            ic.img_comp(f'{UPLOAD_FOLDER}{file.filename}',k)
         end_time = datetime.now()
         duration = end_time - start_time
 
-        savename,ext = os.path.splitext(filename)
         savename = f'{UPLOAD_FOLDER}{savename}Compressed{ext}'
         uploadFilename = f'{UPLOAD_FOLDER}{filename}'
         size_before = os.path.getsize(uploadFilename)
