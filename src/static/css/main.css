@@ -1,16 +1,45 @@
 body {
     margin: 0;
     padding: 0;
-    background-color:rgb(19, 144, 228);
+    background-image: url(https://www.pixel4k.com/wp-content/uploads/2018/03/Minimal%20Blue%20Mountains%20HD%205K3252418027-1024x640.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 * {
     box-sizing: border-box;
 }
 
-h1.title {
-    text-align: center;
+nav{
+    top: 0%;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 25px;
+    padding-left: 8% ;
+    padding-right: 8%;
+    padding-bottom: 25px;
+    background-image:linear-gradient(115deg, rgba(37, 37, 94, 0.8), rgba(79, 79, 121, 0.7));
 }
+
+.nav2{
+    display: flex;
+    flex-direction: row;
+}
+
+.logo{
+    color:white;
+    font-size: 35px;
+    letter-spacing: 1px;
+}
+
+.logo2{
+    color:white;
+    font-size:25px;
+    letter-spacing: 1px;
+}
+
+
 
 .container {
     margin: 2em;
@@ -23,16 +52,87 @@ h1.title {
 }
 
 .file-uploader {
-    background-color: rgb(212, 103, 31);
-    padding: 1em;
+    display: block;
+    padding-top: 1px;
+    padding-right: 0.625rem;
+    padding-bottom: 1px;
+    padding-left: 0.625rem;
+    background-image:linear-gradient(115deg, rgba(37, 37, 94, 0.8), rgba(79, 79, 121, 0.7));
+    margin:25px 0px 10px 0px;
+    box-shadow: 6px 6px 6px rgba(45, 45, 116, 0.8);
+    border-radius: 0.3rem;
+}
+
+.file-uploader .upload_container{
+    margin: auto;
+}
+
+.file-uploader .rest_container{
+    width: fit-content;
+    margin: auto;
+}
+
+.ps{
+    text-align: center;
+}
+
+.file-uploader h2{
+    text-align: center;
+}
+
+.upload_container{
+    background-color:rgb(76, 88, 197);
+    text-decoration: none;
+    border: 2px solid transparent;
+    font-weight: bold;
+    padding: 0px 11px 4px 11px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px rgb(0, 0, 0);
+    margin-bottom: 20px;
+    width: fit-content;
+}
+
+
+h1, h2 ,p,label {
+    color : white
+}
+
+.upload_file_label:hover{
+    cursor:pointer
+}
+
+.upload_file_label i{
+    position: relative;
+    top: 6px;
+    margin-right: 5px;
+}
+
+input[type=submit]{
+    background-color:rgb(76, 88, 197);
+    color:white;
+    font-weight: bold;
+    padding: 7px 9px 7px 9px;
+    border-radius: 6px;
+    transition : transform  .3s;
+    box-shadow: 2px 2px 2px rgb(0, 0, 0);
+}
+
+input[type=submit]:hover{
+    cursor: pointer;
+    transform: scale(1.08);
 }
 
 .image-box {
     display: flex;
-    /* width: 800px; */
-    /* height: 400px; */
+    padding-top: 1px;
+    padding-right: 0.625rem;
+    padding-bottom: 1px;
+    padding-left: 0.625rem;
+    background-image:linear-gradient(115deg, rgba(37, 37, 94, 0.8), rgba(79, 79, 121, 0.7));
+    margin:25px 0px 10px 0px;
+    box-shadow: 6px 6px 6px rgba(45, 45, 116, 0.8);
+    border-radius: 0.3rem;
     justify-content: space-evenly;
-    background-color: rgb(216, 128, 12);
 }
 
 .before {
@@ -52,17 +152,66 @@ h1.title {
     gap: 10px;
 }
 
+.cprate{
+    width: 55px;
+    border-radius: 0.5rem;
+    padding: 3px 3px 3px 3px;
+    margin-right: 3px;
+}
+
 .imgresult {
     display:flex;
     flex-direction: column;
-    
+    text-align: center;
+    justify-content: center;
 }
-
+img{
+    margin: auto;
+}
 .rate-info {
-    /* display: flex; */
-    background-color: blueviolet;
+    display: block;
+    padding-top: 1px;
+    padding-right: 0.625rem;
+    padding-bottom: 1px;
+    padding-left: 0.625rem;
+    background-image:linear-gradient(115deg, rgba(37, 37, 94, 0.8), rgba(79, 79, 121, 0.7));
+    box-shadow: 6px 6px 6px rgba(45, 45, 116, 0.8);
+    border-radius: 0.3rem;
+    margin-top: 25px;
+    color: white;
+}
+.rate-info div p {
+    text-align: center;
 }
 
+.rate-info div a{
+    width: fit-content;
+    margin: auto;
+}
+
+.download{
+    width: fit-content;
+    margin: auto;
+    background-color:rgb(76, 88, 197);
+    color:white;
+    font-weight: bold;
+    padding: 8px 10px;
+    border-radius: 6px;
+    transition : transform  .3s;
+    box-shadow: 2px 2px 2px rgb(0, 0, 0);
+    margin-bottom: 8px;
+}
+
+.download .download_bttn{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.download:hover{
+    cursor: pointer;
+    transform: scale(1.08);
+}
 button.rate-info {
     height: 20px;
     align-self:flex-start;

@@ -1,16 +1,23 @@
 <html>
     <head>
         <title>Jamur Crispy Team</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">     
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+        <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>     
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="{{url_for('static', filename='script.js')}}"></script>
     </head>
     <body>
         
         <div class="container">
-            <h1 class="title">Image Compression</h1>
+            <nav>
+                <div class="nav2">
+                    <i class='bx bx-map-alt bx-rotate-270 bx-lg' style='color:#fbfafa' ></i>
+                    <h2 class="logo">Jamur Crispy</h2>
+                </div>
+                <h3 class="logo2">Image Compression</h3>
+            </nav>
             <div class="file-uploader">
-                <h2>Select an image to upload</h2>
+                <h2>Select An Image To Upload</h2>
 
                 <p>
                     {% with messages = get_flashed_messages() %}
@@ -27,21 +34,29 @@
                 <form method="post" action="/" enctype="multipart/form-data">
                     <dl>
                         <p>
-                            <input type="file" name="file" autocomplete="off" required>
+                            <div class ="upload_container">
+                                <label class="upload_file_label">
+                                    <i class='bx bxs-cloud-upload bx-tada bx-sm' ></i>
+                                    <input type="file" name="file" autocomplete="off" required>
+                                </label>
+                            </div>
                         </p>
                     </dl>
-                    <label for="compressRate">Image Compression Rate: </label><br>
-                    <div class="slider">
-
-
-                        <input type="text" id="compressRate" name="compressRate" size="1" maxLength="3">
-                        <p>%</p>
-
+                    <div class = "rest_container">
+                        <label for="compressRate">
+                            <b>Image Compression Rate:</b>
+                            <input type="text" id="compressRate" name="compressRate" maxLength="3" class="cprate"><p style="display:inline">%</p>
+                        </label>
+                            <input type="range" class="slider" min="1" max="100" value="50" id="slider">
                     </div>
-                        <input type="range" class="slider" min="1" max="100" value="50" id="slider">
-                    <p>
-                        <input type="submit" value="Submit">
-                    </p>
+                    <div class="ps">
+                            <p>p.s. Based on rank. the closer the rate to 100%, the fewer the rank that will be used</p>
+                    </div>
+                    <div class = "rest_container">
+                        <p>
+                            <input type="submit" value="Submit">
+                        </p>
+                    </div>
                 </form>
             </div>
             {% if filename %}
@@ -50,25 +65,29 @@
                 <div class="imgresult" style="pad: 20px;">
                     <h2>Before</h2>
                     
-                        <img style="max-width:100%;max-height:100%;" src="{{ url_for('display_image', filename=filename) }}">
+                        <img style="max-width:75%;max-height:75%;" src="{{ url_for('display_image', filename=filename) }}">
                         
                 </div>
                 
                 <div class="imgresult" style="pad: 20px;">
                     <h2>After</h2>
-                        <img style="max-width:100%;max-height:100%;" src="{{ url_for('display_image_c', filename=filename) }}">
+                        <img style="max-width:75%;max-height:75%;" src="{{ url_for('display_image_c', filename=filename) }}">
                     
                 </div>
             </div>
             <div class="rate-info">
                 <div>
                     
-                    <p>Image pixel difference percentage: {{compression_rate}}</p>
-                    
-                    <p>Image compression time : {{duration}} </p>
+                    <p style="font-weight : bold">Image pixel ratio percentage: {{compression_rate}}</p>
+                    <p>p.s. the closer the percentage above to 100%, the closer the image pixel of the two image</p>
+                    <p style="font-weight : bold">Image compression time : {{duration}} </p>
                     
                 </div>
-                <a href = "{{url_for('download_file', filename=filename)}}">Download</a>
+                <div>
+                    <div class="download">
+                        <a href = "{{url_for('download_file', filename=filename)}}" class="download_bttn">Download</a>
+                    </div>
+                </div>
             </div>
             {% endif %}
 
