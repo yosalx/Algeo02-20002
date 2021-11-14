@@ -18,9 +18,9 @@ Algeo02-20002
 3. Aktivasi virtual environment: '. venv/bin/activate'
 4. Install flask: 'pip install flask'
 5. Jalankan command berikut:
-'set FLASK_APP=app.py
-set FLASK_ENV=development
-flask run'
+'set FLASK_APP=app.py'
+'set FLASK_ENV=development'
+'flask run'
 6. Buka alamat 127.0.0.1:5000 di browser
 
 ## Anggota Kelompok
