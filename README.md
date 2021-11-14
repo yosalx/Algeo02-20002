@@ -15,12 +15,12 @@ Algeo02-20002
 ## Cara pakai
 1. Clone repo ini: `git clone git@github.com:ranjabi/Algeo02-20002.git`
 2. Pergi ke Algeo02-20002: `cd Algeo02-20002/src`
-4. Pastikan sudah terinstall flask: `pip install flask`
-5. Jalankan command berikut:
+3. Pastikan sudah terinstall flask: `pip install flask`
+4. Jalankan command berikut:
 `set FLASK_APP=app.py`
 `set FLASK_ENV=development`
 `flask run`
-6. Buka alamat 127.0.0.1:5000 di browser
+5. Buka alamat 127.0.0.1:5000 di browser
 
 ## Anggota Kelompok
 | NIM      | NAMA                     |
