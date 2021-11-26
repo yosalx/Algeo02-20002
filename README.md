@@ -14,7 +14,7 @@
 
 ## Directory
 ```sh
-Algeo02-20002
+Image_Compression_With_SVD
 ├── src                     # Berisi source kode program
 │   ├── static              # Berisi folder css
 │   ├── templates           # Berisi index.html
@@ -25,7 +25,7 @@ Algeo02-20002
 
 ## How to Run
 1. Clone this repo : `git clone git@github.com:ranjabi/Algeo02-20002.git`
-2. Go to the src folder : `cd Algeo02-20002/src`
+2. Go to the src folder : `cd Image_Compression_With_SVD/src`
 3. Prequisite -> make sure flask is installed : `pip install flask`
 4. Run this command :
 `set FLASK_APP=app.py`
