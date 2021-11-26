@@ -1,6 +1,6 @@
 # Image Compressor
 
-### Iamge Compression Project made to fulfill the second (final) major task of IF2123 'Aljabar Linier dan Geometri' Class at Institut Teknologi Bandung.
+### Image Compression Project made to fulfill the second (final) major task of IF2123 'Aljabar Linier dan Geometri' Class at Institut Teknologi Bandung.
 
 #### Image Comprresion website deployed on local that used SVD method.
 
