@@ -24,7 +24,7 @@ Image_Compression_With_SVD
 ```
 
 ## How to Run
-1. Clone this repo : `git clone git@github.com:ranjabi/Algeo02-20002.git`
+1. Clone this repo : `git clone git@github.com:yosalx/Image_Compression_With_SVD.git`
 2. Go to the src folder : `cd Image_Compression_With_SVD/src on terminal `
 3. Prequisite -> make sure flask is installed : `pip install flask on terminal `
 4. Run this command at the terminal :
