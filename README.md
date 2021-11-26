@@ -25,10 +25,12 @@ Image_Compression_With_SVD
 
 ## How to Run
 1. Clone this repo : `git clone git@github.com:ranjabi/Algeo02-20002.git`
-2. Go to the src folder : `cd Image_Compression_With_SVD/src`
-3. Prequisite -> make sure flask is installed : `pip install flask`
-4. Run this command :
+2. Go to the src folder : `cd Image_Compression_With_SVD/src on terminal `
+3. Prequisite -> make sure flask is installed : `pip install flask on terminal `
+4. Run this command at the terminal :
 `set FLASK_APP=app.py`
 `set FLASK_ENV=development`
 `flask run`
 5. Ctrl + click on the address given on the terminal or manually go to 127.0.0.1:5000 on the browser
+
+> Will only accept pictures with the extensions '.jpg', '.jpeg' , and '.png' (with or without the transparency)
