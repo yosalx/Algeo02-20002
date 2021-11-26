@@ -1,7 +1,18 @@
-## Tugas Besar 2 IF2123 - Kelompok 17: Jamur Crispy
-Membuat program kompresi gambar dengan memanfaatkan algoritma SVD dalam bentuk website lokal sederhana. 
+# Image Compressor
 
-## Struktur Folder
+### Iamge Compression Project made to fulfill the second (final) major task of IF2123 'Aljabar Linier dan Geometri' Class at Institut Teknologi Bandung.
+
+#### Image Comprresion website deployed on local that used SVD method.
+
+## Jamur Crispy Group
+
+| NIM      | NAME                     |
+|----------|--------------------------|
+| 13520002 | Muhammad Fikri Ranjabi   |
+| 13520141 | Yoseph Alexander Siregar |
+| 13520147 | Aloysius Gilang Pramudya |
+
+## Directory
 ```sh
 Algeo02-20002
 ├── src                     # Berisi source kode program
@@ -12,19 +23,12 @@ Algeo02-20002
 ├── doc                     # Berisi laporan
 ```
 
-## Cara pakai
-1. Clone repo ini: `git clone git@github.com:ranjabi/Algeo02-20002.git`
-2. Pergi ke Algeo02-20002: `cd Algeo02-20002/src`
-3. Pastikan sudah terinstall flask: `pip install flask`
-4. Jalankan command berikut:
+## How to Run
+1. Clone this repo : `git clone git@github.com:ranjabi/Algeo02-20002.git`
+2. Go to the src folder : `cd Algeo02-20002/src`
+3. Prequisite -> make sure flask is installed : `pip install flask`
+4. Run this command :
 `set FLASK_APP=app.py`
 `set FLASK_ENV=development`
 `flask run`
-5. Buka alamat 127.0.0.1:5000 di browser
-
-## Anggota Kelompok
-| NIM      | NAMA                     |
-|----------|--------------------------|
-| 13520002 | Muhammad Fikri Ranjabi   |
-| 13520141 | Yoseph Alexander Siregar |
-| 13520147 | Aloysius Gilang Pramudya |
+5. Ctrl + click on the address given on the terminal or manually go to 127.0.0.1:5000 on the browser
